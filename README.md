@@ -1,6 +1,8 @@
-# Getting Started with Create React App
+# NES Games List
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a React demo I made for fun.
+
+_________________________________________________________________
 
 ## Available Scripts
 
