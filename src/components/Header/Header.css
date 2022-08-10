@@ -1,0 +1,10 @@
+.header {
+    padding: 10px;
+}
+
+.famicomLogo {
+    width: 50rem; 
+    max-width: 90%;
+    display: block;
+    margin: auto
+}

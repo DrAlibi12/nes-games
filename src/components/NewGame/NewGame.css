@@ -1,0 +1,25 @@
+.button {
+    margin: 5px;
+    padding: 10px;
+    border-radius: 14px;
+    border: 0px;
+    background: #303691;
+    color: white;
+    font-weight: bold;
+}
+
+.button:hover {
+    background: #525795;
+}
+
+.button:active {
+    background: #414684;
+    box-shadow: inset 0px 2px 5px #202580;
+}
+
+.big-button {
+    display: block;
+    margin: auto;
+    font-size: 1rem;
+}
+  

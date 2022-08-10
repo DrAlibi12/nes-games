@@ -1,0 +1,12 @@
+.game-item {
+    display: block;
+    list-style: none;
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 10px;
+    margin-left: 10px;
+    border: 3px solid #e6361e;
+    color: #303691;
+    font-weight: bold;
+}
