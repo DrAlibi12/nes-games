@@ -83,6 +83,11 @@ const DUMMY_GAMES = [
     name: 'Mega-Man 2',
     year: 1988
   },
+  {
+    id: 'g15',
+    name: 'Dragon Quest',
+    year: 1986
+  },
 ];
 
 const sortGames = (a, b) => {
