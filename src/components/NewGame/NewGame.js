@@ -4,10 +4,10 @@ import GameForm from "../GameForm/GameForm";
 import ModalInfo from "../ModalInfo/ModalInfo";
 import Button from "../Button/Button";
 
-import sndCoin from './../../coin.ogg';
-import sndDead from './../../dead.ogg';
-import sndKick from './../../kick.wav';
-import sndBump from './../../bump.wav';
+import sndCoin from './../../assets/coin.ogg';
+import sndDead from './../../assets/dead.ogg';
+import sndKick from './../../assets/kick.wav';
+import sndBump from './../../assets/bump.wav';
 
 function NewGame(props) {
     const [isOpen, setIsOpen] = useState(false);

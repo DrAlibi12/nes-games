@@ -1,5 +1,5 @@
 import React from "react";
-import famicomLogo from './../../famicomLogo.png';
+import famicomLogo from './../../assets/famicomLogo.png';
 
 import './Header.css';
 

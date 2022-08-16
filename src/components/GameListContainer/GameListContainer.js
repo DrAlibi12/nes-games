@@ -3,7 +3,7 @@ import GameListHeader from "../GameListHeader/GameListHeader";
 import GameList from "../GameList/GameList";
 import Container from "../Container/Container";
 
-import ffLogo from '../../ffLogo.png';
+import ffLogo from '../../assets/ffLogo.png';
 
 import './GameListContainer.css';
 

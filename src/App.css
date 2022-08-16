@@ -1,6 +1,6 @@
 @font-face {
   font-family: famicom;
-  src: url(ITCAvantGardeStd-Bold.ttf);
+  src: url("assets/ITCAvantGardeStd-Bold.ttf");
 }
 
 body {
