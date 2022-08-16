@@ -5,12 +5,14 @@ import './GameList.css';
 
 function GameList(props) {
     return (
-        <ul style={{padding:'0px'}} className='game-list'>
+        <ul className='game-list'>
             {props.games.map(game => (
                 <GameItem
                     year={game.year}
                     name={game.name}
-                    key={game.key}
+                    key={game.id}
+                    id={game.id}
+                    onDelete={props.onDeleteGame}
                 />
             ))}
         </ul>

@@ -1,0 +1,13 @@
+.game-form__input label {
+    font-weight: bold;
+    color: #303691;
+}
+
+.game-form__input input {
+    padding: 0px;
+    width: 100%;
+}
+
+.game-form__actions {
+    float: right;
+}

@@ -10,3 +10,7 @@
     color: #303691;
     font-weight: bold;
 }
+
+.game-item:hover {
+    cursor: pointer;
+}

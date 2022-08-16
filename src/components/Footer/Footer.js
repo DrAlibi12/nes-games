@@ -5,7 +5,7 @@ import './Footer.css';
 function Footer() {
     return (
         <div className="footer">
-            ©2022 Enio Lotero
+            REACT DEMO - 2022 Enio Lotero
         </div>
     );
 }

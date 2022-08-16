@@ -2,63 +2,58 @@ import React, { useState } from "react";
 import Container from "../Container/Container";
 import GameForm from "../GameForm/GameForm";
 import ModalInfo from "../ModalInfo/ModalInfo";
+import Button from "../Button/Button";
 
 import sndCoin from './../../coin.ogg';
 import sndDead from './../../dead.ogg';
 import sndKick from './../../kick.wav';
 import sndBump from './../../bump.wav';
 
-import './NewGame.css';
-
 function NewGame(props) {
     const [isOpen, setIsOpen] = useState(false);
-    const [showError, setShowError] = useState(false);
-    const [errorMessage, setErrorMessage] = useState("");
-
+    const [error, setError] = useState("");
+    
     const audio = new Audio();
+
+    const playAudio = (audioSource) => {
+        audio.pause();
+        audio.src = audioSource;
+        audio.play();
+    }
 
     const openCloseForm = (event) => {
         setIsOpen((prevValue) => {
-            audio.pause();
-            audio.src = sndDead;
             if (!prevValue) {
-                audio.src = sndKick;
+                playAudio(sndKick);
+            } else {
+                playAudio(sndBump);
             }
-            audio.play();
             return !prevValue;
         });
     }
 
     const addGameHandler = (newGame) => {
-        audio.pause();
-        audio.src = sndCoin;
-        audio.play();
+        playAudio(sndCoin);
         props.onAddGame(newGame);
     }
 
-    const errorHandler = (newErrorMessage) => {
-        audio.pause();
-        audio.src = sndBump;
-        audio.play();
-        setErrorMessage(newErrorMessage);
-        setShowError(true);
+    const errorHandler = (error) => {
+        playAudio(sndDead);
+        setError(error);
         document.body.classList.add('modal-open');
     }
     
     const closeErrorModal = (event) => {
-        setShowError(false);
+        setError();
         document.body.classList.remove('modal-open');
     }
 
     return (
         <Container>
+            { error && <ModalInfo onClose={closeErrorModal} title={error.title} message={error.message} /> }
             { isOpen
                 ? <GameForm onAddGame={addGameHandler} onCancel={openCloseForm} onError={errorHandler} />
-                : <button className="button big-button" onClick={openCloseForm}>Add New Game</button>
-            }
-            { showError
-                ? <ModalInfo onClose={closeErrorModal} message={errorMessage} />
-                : <></>
+                : <Button bigButton={true} label='Add New Game' onClick={openCloseForm} />
             }
         </Container>
     );

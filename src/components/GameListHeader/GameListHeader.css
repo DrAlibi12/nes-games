@@ -1,0 +1,11 @@
+.list-header {
+    text-align: center;
+}
+
+.list-header label {
+    color: #e6361e;
+    text-decoration: underline;
+    font-size: 2rem;
+    font-family: 'famicom';
+    font-weight: bold;
+}

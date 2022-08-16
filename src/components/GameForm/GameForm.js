@@ -1,33 +1,32 @@
 import React, {useState} from "react";
+import Button from "../Button/Button";
 
 import './GameForm.css';
 
 function GameForm(props) {
-    const [errorMessage, setErrorMessage] = useState("");
     const [gameName, setGameName] = useState("");
     const [gameYear, setGameYear] = useState("");
 
-    const formIsValid = () => {
-        if (gameName.trim() === "") {
-            setErrorMessage("Game name cannot be empty.");
-            return false;
+    const generateErrorObject = (title, message) => {
+        return {
+            title, message
         }
-        if (gameYear.trim() === "") {
-            setErrorMessage("Game year cannot be empty.");
-            return false;
+    }
+
+    const formGetError = () => {
+        if (gameName.trim().length === 0 || gameYear.trim().length === 0) {
+            return generateErrorObject("INVALID INPUT", "Game name and game year must be completed.");
         }
         const intYear = parseInt(gameYear);
         const minYear = 1983;
         const maxYear = new Date().getFullYear();
         if (isNaN(intYear)) {
-            setErrorMessage("Game year must be a number.");
-            return false;
+            return generateErrorObject("INVALID YEAR", "Game year must be a number.");
         }
         if (intYear < minYear || intYear > maxYear) {
-            setErrorMessage(`Game year must be between ${minYear} and ${maxYear}.`);
-            return false;
+            return generateErrorObject("YEAR OUT OF RANGE", `Game year must be between ${minYear} and ${maxYear}.`);
         }
-        return true;
+        return null;
     }
 
     const gameNameChangeHandler = (event) => {
@@ -40,8 +39,9 @@ function GameForm(props) {
 
     const formSubmitHandler = (event) => {
         event.preventDefault();
-        if (!formIsValid()) {
-            props.onError(errorMessage);
+        const error = formGetError();
+        if (error !== null) {
+            props.onError(error);
             return;
         }
         const newGame = {
@@ -56,17 +56,17 @@ function GameForm(props) {
 
     return (
         <form name="game-form" onSubmit={formSubmitHandler}>
-            <div>
-                <label style={{fontWeight:'bold', color:'#303691'}}>Game Name</label><br/>
-                <input type="text" value={gameName} onChange={gameNameChangeHandler} style={{padding:'0px', width:'100%'}} />
+            <div className="game-form__input">
+                <label>Game Name</label><br/>
+                <input type="text" value={gameName} onChange={gameNameChangeHandler} />
             </div>
-            <div>
-                <label style={{fontWeight:'bold', color:'#303691'}}>Release Year</label><br/>
-                <input type="text" value={gameYear} onChange={gameYearChangeHandler} style={{padding:'0px', width:'100%'}} />
+            <div className="game-form__input">
+                <label>Release Year</label><br/>
+                <input type="text" value={gameYear} onChange={gameYearChangeHandler} />
             </div>
-            <div style={{float:'right'}}>
-                <button className='button' onClick={props.onCancel}>Cancel</button>
-                <button type='submit' className='button'>Add Game</button>
+            <div className="game-form__actions">
+                <Button onClick={props.onCancel} label='Cancel' />
+                <Button type='submit' label='Add Game' />
             </div>
         </form>
     );

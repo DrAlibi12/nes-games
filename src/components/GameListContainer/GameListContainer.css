@@ -1,0 +1,18 @@
+.ff-logo {
+  width: 20rem;
+  padding-top: 20px;
+  margin-bottom: 20px;
+  position: absolute;
+  opacity: 0.05;
+  z-index: -1000;
+  margin: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .ff-logo {
+    width: 30rem;
+  }
+}
